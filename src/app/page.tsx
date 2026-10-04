@@ -1,5 +1,5 @@
-import { MissionMap } from "@/components/home/mission-map";
+import { TopicDirectory } from "@/components/home/topic-directory";
 
 export default function Home() {
-  return <MissionMap />;
+  return <TopicDirectory />;
 }
