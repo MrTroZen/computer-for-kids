@@ -517,7 +517,7 @@ function AllThreeTogetherSlide() {
           ) : (
             <>
               <h1 className={`m-0 transition-all ${cssOn ? "text-2xl font-black text-blue-600 uppercase" : "text-xl font-normal text-black font-serif"}`}>
-                Rocket Mission
+                Rocket Launch
               </h1>
               <p className={`m-0 transition-all ${cssOn ? "text-xs text-slate-600 font-bold" : "text-xs text-black font-serif"}`}>
                 Counting down to launch.

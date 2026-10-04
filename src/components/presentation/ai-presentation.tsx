@@ -310,7 +310,7 @@ function AiAsTeacherSlide() {
         )}
         {action === "question" && (
           <div className="flex flex-col gap-1">
-            <span className="text-xs font-black text-blue-700 uppercase">Quiz Question:</span>
+            <span className="text-xs font-black text-blue-700 uppercase">Practice Question:</span>
             <p className="text-sm font-semibold text-slate-800 m-0">
               &ldquo;The Moon is smaller than Earth. If you jumped on the Moon, would you jump higher or lower than on Earth?&rdquo;
             </p>
@@ -319,7 +319,7 @@ function AiAsTeacherSlide() {
       </div>
 
       <div className="text-xs font-semibold text-slate-600 text-center">
-        You don&apos;t have to settle for the first answer. Ask AI to rephrase, give examples, or quiz you!
+        You don&apos;t have to settle for the first answer. Ask AI to rephrase, give examples, or ask you questions!
       </div>
     </div>
   );
