@@ -4,6 +4,9 @@ import { HardwarePresentation } from "@/components/presentation/hardware-present
 import { UsingAComputerPresentation } from "@/components/presentation/using-a-computer-presentation";
 import { InternetPresentation } from "@/components/presentation/internet-presentation";
 import { AccountsCloudPresentation } from "@/components/presentation/accounts-cloud-presentation";
+import { InternetSafetyPresentation } from "@/components/presentation/internet-safety-presentation";
+import { SearchLearningPresentation } from "@/components/presentation/search-learning-presentation";
+import { AiPresentation } from "@/components/presentation/ai-presentation";
 import { TopicPlaceholder } from "@/components/presentation/topic-placeholder";
 import { getTopic, topics } from "@/data/topics";
 
@@ -20,5 +23,8 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
   if (slug === "using-a-computer") return <UsingAComputerPresentation />;
   if (slug === "internet") return <InternetPresentation />;
   if (slug === "accounts-and-cloud") return <AccountsCloudPresentation />;
+  if (slug === "internet-safety") return <InternetSafetyPresentation />;
+  if (slug === "searching-and-learning") return <SearchLearningPresentation />;
+  if (slug === "ai") return <AiPresentation />;
   return <TopicPlaceholder title={topic.title} description={topic.description} />;
 }
