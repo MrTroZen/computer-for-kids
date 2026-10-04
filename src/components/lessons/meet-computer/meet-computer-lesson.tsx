@@ -10,7 +10,7 @@ import { useProgress } from "@/features/progress/progress-provider";
 import { ChallengePanel } from "./challenge-panel";
 import { ComputerDiagram } from "./computer-diagram";
 
-const stageTitles = ["What does a computer do?", "Input", "Processing", "Storage", "Output", "Put it all together", "Challenge", "Mission complete"];
+const stageTitles = ["Power Scan", "Input Power", "CPU Power", "Data Vault", "Output Power", "Power Flow", "Tech Trial", "Power Unlocked"];
 const concepts = [
   { id: "input", label: "Input", text: "Information you give the computer." },
   { id: "process", label: "Processing", text: "The computer follows instructions and works with information." },
@@ -104,7 +104,7 @@ export function MeetComputerLesson() {
       hideNavigation={stage === 7}
     >
       {stage === 0 && (
-        <InteractiveStage title="A computer takes information, works with it, and gives you a result." instruction="Select each job to see what it means.">
+        <InteractiveStage title="Discover the four powers every computer needs." instruction="Select each power to see what it does.">
           <ComputerDiagram focus="overview" />
           <div className="concept-tabs">
             {concepts.map((concept) => (
@@ -128,7 +128,7 @@ export function MeetComputerLesson() {
             </div>
             <small>{name.length}/18 characters</small>
           </div>
-          {inputSent && <FeedbackMessage type="success">You gave the computer input: “{cleanName}”.</FeedbackMessage>}
+          {inputSent && <FeedbackMessage type="success">SIGNAL SENT! You gave the computer input: “{cleanName}”.</FeedbackMessage>}
           {mouseClicked && <FeedbackMessage type="hint"><MousePointerClick /> Clicking is input too. It tells the computer what you want.</FeedbackMessage>}
         </InteractiveStage>
       )}
@@ -142,7 +142,7 @@ export function MeetComputerLesson() {
             <div><span>Result</span><strong>{processing ? "Processing…" : processed ? processedName : "—"}</strong></div>
             <button className="lesson-button primary" type="button" onClick={runProcessing} disabled={processing || processed}><Play /> Run</button>
           </div>
-          {processed && <FeedbackMessage type="success">The CPU followed the instruction and produced a new result.</FeedbackMessage>}
+          {processed && <FeedbackMessage type="success">ZAP! The CPU followed the instruction and produced a new result.</FeedbackMessage>}
         </InteractiveStage>
       )}
 
@@ -150,7 +150,7 @@ export function MeetComputerLesson() {
         <InteractiveStage title="Storage keeps information so you can use it later." instruction={`Should we save ${processedName}?`}>
           <ComputerDiagram focus="storage" processedName={processedName} saved={saved} />
           <div className="single-action"><button className="lesson-button primary" type="button" onClick={() => setSaved(true)} disabled={saved}><Save /> Save {processedName}</button></div>
-          {saved && <FeedbackMessage type="success">Saved. Information on storage can stay after an app closes.</FeedbackMessage>}
+          {saved && <FeedbackMessage type="success">DATA STORED ✓ Information can stay after an app closes.</FeedbackMessage>}
         </InteractiveStage>
       )}
 
@@ -158,7 +158,7 @@ export function MeetComputerLesson() {
         <InteractiveStage title="Output is information the computer gives back to you." instruction="Send the result to the monitor.">
           <ComputerDiagram focus="output" processedName={processedName} outputVisible={outputShown} />
           <div className="single-action"><button className="lesson-button primary" type="button" onClick={() => setOutputShown(true)} disabled={outputShown}><Send /> Show output</button></div>
-          {outputShown && <FeedbackMessage type="success">Text on a monitor is output. Sound and printed paper can be output too.</FeedbackMessage>}
+          {outputShown && <FeedbackMessage type="success">SYSTEM READY! Text on a monitor is output. Sound and printed paper can be output too.</FeedbackMessage>}
         </InteractiveStage>
       )}
 

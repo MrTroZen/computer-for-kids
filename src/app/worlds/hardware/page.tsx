@@ -4,8 +4,8 @@ import { WorldOverview } from "@/components/worlds/world-overview";
 import { getWorldBySlug } from "@/data/worlds";
 
 export const metadata: Metadata = {
-  title: "Hardware Lab — Computer Lab",
-  description: "Learn the physical parts of a computer through six practical missions.",
+  title: "Tech Lab — Eesa Byte",
+  description: "Power up through six interactive computer challenges.",
 };
 
 export default function HardwareWorldPage() {

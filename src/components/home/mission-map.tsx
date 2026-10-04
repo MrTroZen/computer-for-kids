@@ -8,10 +8,10 @@ import { getWorldCompletion, getWorldStatus } from "@/features/progress/selector
 import type { ProgressStatus } from "@/features/worlds/types";
 
 const statusLabels: Record<ProgressStatus, string> = {
-  available: "Available",
-  "in-progress": "In progress",
-  completed: "Completed",
-  locked: "Locked",
+  available: "READY",
+  "in-progress": "ACTIVE",
+  completed: "POWERED UP",
+  locked: "LOCKED",
 };
 
 function StatusIcon({ status }: { status: ProgressStatus }) {
@@ -22,16 +22,29 @@ function StatusIcon({ status }: { status: ProgressStatus }) {
 
 export function MissionMap() {
   const { progress, actions } = useProgress();
+  const level = Math.floor(progress.xp / 500) + 1;
+  const currentMission = worlds.find((world) => world.id === progress.currentWorldId) ?? worlds[0];
 
   return (
-    <section className="journey-page">
-      <header className="journey-heading">
-        <p className="eyebrow">LEARNING JOURNEY</p>
-        <h1>Learn how computers work</h1>
-        <p>Move through each world at your own pace. Your progress is saved on this device.</p>
+    <section className="journey-page hero-hq">
+      <header className="journey-heading hero-hq-heading">
+        <div>
+          <p className="eyebrow">HERO HQ · SYSTEM READY</p>
+          <h1>Welcome back, Eesa.</h1>
+          <p>Your next tech mission is ready.</p>
+        </div>
+        <div className="hq-signal" aria-hidden="true">EB//01</div>
       </header>
 
-      <ol className="journey-path" aria-label="Computer skills learning journey">
+      <div className="hero-dashboard">
+        <div><span>HERO LEVEL</span><strong>{level}</strong></div>
+        <div className="hq-xp"><span>HERO PROGRESS</span><strong>{progress.xp} XP</strong><span className="hq-xp-track"><span style={{ width: `${(progress.xp % 500) / 5}%` }} /></span></div>
+        <div><span>CURRENT MISSION</span><strong>{currentMission.title}</strong></div>
+      </div>
+
+      <div className="mission-map-title"><span>MISSION MAP</span><small>Unlock your tech powers</small></div>
+
+      <ol className="journey-path" aria-label="Eesa Byte mission map">
         {worlds.map((world) => {
           const status = getWorldStatus(world, progress);
           const completion = getWorldCompletion(world, progress);
@@ -39,7 +52,7 @@ export function MissionMap() {
             <>
               <span className={`path-marker status-${status}`}><StatusIcon status={status} /></span>
               <span className="path-content">
-                <span className="world-kicker">WORLD {String(world.number).padStart(2, "0")}</span>
+                <span className="world-kicker">MISSION {String(world.number).padStart(2, "0")}</span>
                 <strong>{world.title}</strong>
                 <span className="world-description">{world.description}</span>
                 <span className="world-progress" aria-label={`${completion}% complete`}>

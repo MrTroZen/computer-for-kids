@@ -21,9 +21,9 @@ export function LessonShell({ stage, stageCount, stageTitle, children, onBack, o
   return (
     <section className="lesson-shell">
       <header className="lesson-header">
-        <Link className="lesson-exit" href="/worlds/hardware">Hardware Lab</Link>
+        <Link className="lesson-exit" href="/worlds/hardware">Tech Lab</Link>
         <div className="lesson-stage-meta">
-          <span>Stage {stage + 1} of {stageCount}</span>
+          <span>POWER STEP {stage + 1} / {stageCount}</span>
           <strong>{stageTitle}</strong>
         </div>
         <span className="lesson-progress-value">{progress}%</span>

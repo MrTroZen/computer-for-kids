@@ -41,6 +41,8 @@ export function ComputerDiagram({ focus, name = "", processedName = "", transfer
 
       <div className={`computer-unit ${processActive || storageActive ? "is-active" : ""}`}>
         <span className="unit-title">COMPUTER</span>
+        {focus === "process" && processedName && <span className="action-word action-zap">ZAP!</span>}
+        {focus === "storage" && saved && <span className="action-word action-stored">STORED!</span>}
         {showInside ? (
           <div className="computer-inside">
             <div className={`inside-part cpu-part ${processActive ? "is-active" : ""}`}><Cpu /><span>CPU</span>{processActive && processedName && <small>{processedName}</small>}</div>
@@ -55,6 +57,7 @@ export function ComputerDiagram({ focus, name = "", processedName = "", transfer
       </div>
 
       <div className={`monitor-unit ${outputActive ? "is-active" : ""}`}>
+        {focus === "output" && outputVisible && <span className="action-word action-output">OUTPUT!</span>}
         <div className="monitor-screen">
           {outputVisible || (focus === "flow" && flowStep === 4) ? <strong>Hello, {processedName || "ALEX"}!</strong> : <Monitor aria-hidden="true" />}
         </div>

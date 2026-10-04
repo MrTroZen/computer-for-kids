@@ -57,7 +57,7 @@ export function ChallengePanel({ onComplete }: { onComplete: () => void }) {
   if (challenge === 0) {
     return (
       <div className="challenge-panel" data-testid="challenge-labels">
-        <div className="stage-copy"><p className="eyebrow">CHALLENGE 1 OF 3</p><h2>Match each job</h2><p>Drag a label, or tap a label and then tap its part.</p></div>
+        <div className="stage-copy"><p className="eyebrow">TECH TRIAL 1 OF 3</p><h2>Match each job</h2><p>Drag a label, or tap a label and then tap its part.</p></div>
         <div className="label-bank" aria-label="Labels to match">
           {labels.map((label) => <button className={selectedLabel === label ? "choice-chip is-selected" : "choice-chip"} type="button" draggable onDragStart={(event) => event.dataTransfer.setData("text/plain", label)} onClick={() => setSelectedLabel(label)} key={label}>{label}</button>)}
         </div>
@@ -78,7 +78,7 @@ export function ChallengePanel({ onComplete }: { onComplete: () => void }) {
   if (challenge === 1) {
     return (
       <div className="challenge-panel" data-testid="challenge-order">
-        <div className="stage-copy"><p className="eyebrow">CHALLENGE 2 OF 3</p><h2>Put the events in order</h2><p>You click a button in a game. What happens next?</p></div>
+        <div className="stage-copy"><p className="eyebrow">TECH TRIAL 2 OF 3</p><h2>Put the events in order</h2><p>You click a button in a game. What happens next?</p></div>
         <div className="event-bank">
           {eventItems.map(({ id, text, icon: Icon }) => <button className={selectedEvent === id ? "event-choice is-selected" : "event-choice"} type="button" draggable onDragStart={(event) => event.dataTransfer.setData("text/plain", id)} onClick={() => setSelectedEvent(id)} key={id}><Icon />{text}</button>)}
         </div>
@@ -99,7 +99,7 @@ export function ChallengePanel({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div className="challenge-panel" data-testid="challenge-storage">
-      <div className="stage-copy"><p className="eyebrow">CHALLENGE 3 OF 3</p><h2>Where should we keep a file?</h2><p>Choose where information should stay so we can use it later.</p></div>
+      <div className="stage-copy"><p className="eyebrow">TECH TRIAL 3 OF 3</p><h2>Where should we keep a file?</h2><p>Choose where information should stay so we can use it later.</p></div>
       <div className="storage-choices">
         <button type="button" onClick={() => setFeedback("hint")}><Cpu /><strong>CPU</strong><span>Follows instructions</span></button>
         <button type="button" onClick={() => setFeedback("success")}><HardDrive /><strong>Storage</strong><span>Keeps information</span></button>

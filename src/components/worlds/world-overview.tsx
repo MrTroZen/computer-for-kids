@@ -12,21 +12,21 @@ export function WorldOverview({ world }: { world: WorldDefinition }) {
 
   return (
     <section className="world-page">
-      <Link className="back-link" href="/">Back to learning journey</Link>
+      <Link className="back-link" href="/">Back to Hero HQ</Link>
       <header className="world-heading">
         <div>
-          <p className="eyebrow">WORLD {String(world.number).padStart(2, "0")}</p>
+          <p className="eyebrow">MISSION {String(world.number).padStart(2, "0")} · TECH POWER</p>
           <h1>{world.title}</h1>
           <p>{world.description}</p>
         </div>
         <div className="world-summary" aria-label={`${completion}% of ${world.title} complete`}>
           <strong>{completion}%</strong>
-          <span>complete</span>
+          <span>POWER CHARGED</span>
         </div>
       </header>
 
       <div className="mission-section">
-        <h2>Missions</h2>
+        <h2>Tech Challenges</h2>
         <ol className="mission-list">
           {world.lessons.map((lesson) => {
             const status = getLessonStatus(lesson, progress);
@@ -35,7 +35,7 @@ export function WorldOverview({ world }: { world: WorldDefinition }) {
               <>
                 <span className={`mission-marker status-${status}`}>{icon}</span>
                 <span className="mission-copy">
-                  <span>MISSION {lesson.number}</span>
+                  <span>CHALLENGE {String(lesson.number).padStart(2, "0")}</span>
                   <strong>{lesson.title}</strong>
                   <small>{lesson.description}</small>
                 </span>
