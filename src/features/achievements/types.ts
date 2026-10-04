@@ -1,1 +1,6 @@
-export type Achievement = { id: string; title: string; description: string; unlockedAt?: string };
+export type AchievementDefinition = {
+  id: string;
+  title: string;
+  description: string;
+  requirement: string;
+};

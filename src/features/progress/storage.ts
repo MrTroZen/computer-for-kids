@@ -1,15 +1,30 @@
-import type { PlayerProgress } from "./types";
+import type { StudentProgress } from "./types";
 
-const STORAGE_KEY = "bytebound:progress";
+export const PROGRESS_STORAGE_KEY = "computer-for-kids:progress";
 
-export const progressStorage = {
-  load(fallback: PlayerProgress): PlayerProgress {
-    if (typeof window === "undefined") return fallback;
-    const saved = window.localStorage.getItem(STORAGE_KEY);
-    if (!saved) return fallback;
-    try { return JSON.parse(saved) as PlayerProgress; } catch { return fallback; }
+export interface ProgressStorage {
+  load(): StudentProgress | null;
+  save(progress: StudentProgress): void;
+  clear(): void;
+}
+
+export const localProgressStorage: ProgressStorage = {
+  load() {
+    if (typeof window === "undefined") return null;
+    const saved = window.localStorage.getItem(PROGRESS_STORAGE_KEY);
+    if (!saved) return null;
+    try {
+      return JSON.parse(saved) as StudentProgress;
+    } catch {
+      return null;
+    }
   },
-  save(progress: PlayerProgress) {
-    if (typeof window !== "undefined") window.localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  save(progress) {
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
+    }
+  },
+  clear() {
+    if (typeof window !== "undefined") window.localStorage.removeItem(PROGRESS_STORAGE_KEY);
   },
 };

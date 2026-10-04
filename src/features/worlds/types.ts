@@ -1,11 +1,14 @@
-export type WorldStatus = "available" | "locked" | "complete";
+import type { LessonDefinition } from "@/features/lessons/types";
 
-export type LearningWorld = {
+export type WorldDefinition = {
   id: string;
-  order: string;
-  name: string;
-  teaser: string;
-  status: WorldStatus;
-  missionCount: number;
+  slug: string;
+  number: number;
+  title: string;
+  description: string;
+  lessons: LessonDefinition[];
+  requiredWorldId?: string;
   xpReward: number;
 };
+
+export type ProgressStatus = "available" | "in-progress" | "completed" | "locked";

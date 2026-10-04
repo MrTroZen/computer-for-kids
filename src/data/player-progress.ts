@@ -1,12 +1,11 @@
-import type { PlayerProgress } from "@/features/progress/types";
+import { PROGRESS_VERSION, type StudentProgress } from "@/features/progress/types";
 
-export const playerProgress: PlayerProgress = {
-  version: 1,
-  level: 1,
+export const initialProgress: StudentProgress = {
+  version: PROGRESS_VERSION,
   xp: 120,
-  xpToNextLevel: 500,
-  currentWorldId: "hardware-lab",
   completedLessonIds: [],
-  unlockedAchievementIds: [],
-  streakDays: 3,
+  completedWorldIds: [],
+  achievementIds: [],
+  currentWorldId: "hardware-lab",
+  currentLessonId: null,
 };
