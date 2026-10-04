@@ -7,8 +7,8 @@ export const topics = [
   { number: 6, slug: "internet-safety", title: "Internet Safety", description: "Safe choices, privacy and suspicious messages.", icon: "shield", ready: true },
   { number: 7, slug: "searching-and-learning", title: "Searching & Learning", description: "Find useful information and check it carefully.", icon: "search", ready: true },
   { number: 8, slug: "ai", title: "AI", description: "Ask useful questions and check AI answers.", icon: "bot", ready: true },
-  { number: 9, slug: "coding", title: "Coding", description: "HTML, CSS and JavaScript through tiny demonstrations.", icon: "code", ready: false },
-  { number: 10, slug: "putting-a-website-online", title: "Putting a Website Online", description: "Git, GitHub and publishing a simple website.", icon: "rocket", ready: false },
+  { number: 9, slug: "coding", title: "Coding", description: "HTML, CSS and JavaScript through tiny demonstrations.", icon: "code", ready: true },
+  { number: 10, slug: "putting-a-website-online", title: "Putting a Website Online", description: "Git, GitHub and publishing a simple website.", icon: "rocket", ready: true },
 ] as const;
 
 export type Topic = (typeof topics)[number];

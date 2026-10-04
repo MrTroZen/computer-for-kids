@@ -7,6 +7,8 @@ import { AccountsCloudPresentation } from "@/components/presentation/accounts-cl
 import { InternetSafetyPresentation } from "@/components/presentation/internet-safety-presentation";
 import { SearchLearningPresentation } from "@/components/presentation/search-learning-presentation";
 import { AiPresentation } from "@/components/presentation/ai-presentation";
+import { CodingPresentation } from "@/components/presentation/coding-presentation";
+import { WebsiteOnlinePresentation } from "@/components/presentation/website-online-presentation";
 import { TopicPlaceholder } from "@/components/presentation/topic-placeholder";
 import { getTopic, topics } from "@/data/topics";
 
@@ -26,5 +28,7 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
   if (slug === "internet-safety") return <InternetSafetyPresentation />;
   if (slug === "searching-and-learning") return <SearchLearningPresentation />;
   if (slug === "ai") return <AiPresentation />;
+  if (slug === "coding") return <CodingPresentation />;
+  if (slug === "putting-a-website-online") return <WebsiteOnlinePresentation />;
   return <TopicPlaceholder title={topic.title} description={topic.description} />;
 }
