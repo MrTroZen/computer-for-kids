@@ -44,7 +44,7 @@ export function WorldOverview({ world }: { world: WorldDefinition }) {
             );
 
             return (
-              <li key={lesson.id}>
+              <li id={`mission-${lesson.number}`} key={lesson.id}>
                 {status === "locked" ? (
                   <div className="mission-row is-disabled" aria-label={`${lesson.title}, locked`}>{content}</div>
                 ) : (
