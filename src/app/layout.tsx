@@ -10,7 +10,13 @@ import { AppShell } from "@/components/layout/app-shell";
 export const metadata: Metadata = {
   title: "Eesa Byte — Power Up Your Tech Skills",
   description: "Interactive visual lessons for teaching Eesa practical computer skills.",
-  icons: { icon: "/favicon.svg" },
+  icons: {
+    icon: [
+      { url: "/favicon.png", sizes: "64x64", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
